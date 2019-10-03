@@ -16,6 +16,10 @@ const New = ({ history }) => {
     async function handleSubmit(e) {
         e.preventDefault()
 
+        if (!company || !techs || !thumbnail) {
+            return
+        }
+
         const user_id = localStorage.getItem('user')
         const data = new FormData()
 
@@ -44,7 +48,7 @@ const New = ({ history }) => {
                     type='file'
                     onChange={e => setThumbnail(e.target.files[0])}
                 />
-                <img src={camera} alt='Select Image' />
+                <img src={camera} alt='Select' />
             </label>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='company'>EMPRESA *</label>

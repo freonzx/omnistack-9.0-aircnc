@@ -8,6 +8,10 @@ const Login = ({ history }) => {
     const handleSubmit = async e => {
         e.preventDefault()
 
+        if (!email) {
+            return
+        }
+
         const res = await api.post('/session', { email })
         const { _id } = res.data
 
