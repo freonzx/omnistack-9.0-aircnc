@@ -24,6 +24,11 @@ export default function Login({navigation}) {
         navigation.navigate('List');
       }
     });
+    AsyncStorage.getItem('techs').then(savedTechs => {
+      if (savedTechs) {
+        setTechs(savedTechs);
+      }
+    });
   }, []);
 
   async function handleSubmit() {
